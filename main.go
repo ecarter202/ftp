@@ -13,11 +13,12 @@ import (
 const KG_IN_A_POUND = 0.4535924
 
 func main() {
-	lbs := os.Args[1]
-
-	if lbs == "" {
+	args := os.Args
+	if len(args) < 2 {
 		log.Fatal("weight required")
 	}
+
+	lbs := os.Args[1]
 
 	lbsFloat, err := strconv.ParseFloat(lbs, 64)
 	if err != nil {
